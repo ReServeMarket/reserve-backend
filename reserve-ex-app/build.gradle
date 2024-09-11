@@ -1,0 +1,20 @@
+plugins {
+}
+
+
+dependencies {
+    implementation project(':reserve-core')
+    implementation project(':reserve-client')
+    implementation project(':reserve-common')
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+bootJar {
+    enabled = true
+}
+
+jar {
+    enabled = false
+}

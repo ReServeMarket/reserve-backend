@@ -1,1 +1,6 @@
 rootProject.name = 'reserve'
+include 'reserve-client'
+include 'reserve-common'
+include 'reserve-core'
+include 'reserve-ex-app'
+
