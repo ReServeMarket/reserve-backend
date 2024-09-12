@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: ./reserve-ex-app/Dockerfile
-    image: 975050251584.dkr.ecr.ap-northeast-2.amazonaws.com/dev/reserve
+    image: 975050251584.dkr.ecr.ap-northeast-2.amazonaws.com/dev/reserve-api
     container_name: plot-ex-app
     ports:
       - "8081:8081"
