@@ -2,7 +2,7 @@
 FROM eclipse-temurin:21-jdk AS build
 WORKDIR /app
 COPY . /app
-RUN ./gradlew :reserve-ex-app:build -Dspring.profiles.active=dev --refresh-dependencies --stacktrace --scan
+RUN ./gradlew :reserve-ex-app:build
 
 # Runtime stage
 FROM eclipse-temurin:21-jdk-alpine
