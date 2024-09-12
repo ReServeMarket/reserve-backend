@@ -32,4 +32,4 @@ jobs:
         # push it to ECR so that it can
         # be deployed to ECS.
         docker compose build
-        docker push 975050251584.dkr.ecr.ap-northeast-2.amazonaws.com/dev/reserve:latest
+        docker push 975050251584.dkr.ecr.ap-northeast-2.amazonaws.com/dev/reserve-api:latest
