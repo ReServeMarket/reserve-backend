@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: reserve-ex-app
+
+server:
+  port: 8081
+
+---
+spring:
+  config:
+   activate:
+    on-profile: local
+---
+spring:
+  config:
+    activate:
+      on-profile: dev

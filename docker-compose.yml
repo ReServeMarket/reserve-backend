@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  plot-ex-app:
+    build:
+      context: .
+      dockerfile: ./reserve-ex-app/Dockerfile
+    image: 975050251584.dkr.ecr.ap-northeast-2.amazonaws.com/dev/reserve
+    container_name: plot-ex-app
+    ports:
+      - "8081:8081"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
