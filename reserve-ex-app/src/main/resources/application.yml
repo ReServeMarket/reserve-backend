@@ -11,11 +11,12 @@ spring:
    activate:
     on-profile: local
 
-server:
-  servlet:
-    context-path: /api
+
 ---
 spring:
   config:
     activate:
       on-profile: dev
+server:
+  servlet:
+    context-path: /api
