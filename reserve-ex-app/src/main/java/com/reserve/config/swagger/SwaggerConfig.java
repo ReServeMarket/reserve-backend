@@ -19,8 +19,8 @@ public class SwaggerConfig {
 
     private Info apiInfo() {
         return new Info()
-                .title("Spring Boot REST API Specifications")
-                .description("Specification")
+                .title("reserve market  REST API Document")
+                .description("Document")
                 .version("1.0.0");
     }
 }
