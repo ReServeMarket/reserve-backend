@@ -51,7 +51,7 @@ jobs:
         repository: ReServeMarket/reserve-gitops
         ref: main
         # 다른 저장소에 push 하려면 Personal Access Token이 필요.
-        token: ${{ secrets.ACTION_TOKEN }}
+        token: ${{ secrets.GIT_TOKEN }}
         path: reserve-gitops
 
     # 새 이미지 버전으로 파일 수정
@@ -69,4 +69,4 @@ jobs:
         git config --global user.email "xxxlsu@naver.com"
         git config --global user.name "igyeong-yun"
         git commit -am "Update image tag to ${{ github.sha }}"
-        git push https://${{ secrets.ACTION_TOKEN }}@github.com/ReServeMarket/reserve-gitops.git main
+        git push https://${{ secrets.GIT_TOKEN }}@github.com/ReServeMarket/reserve-gitops.git main
