@@ -32,4 +32,39 @@ jobs:
         # push it to ECR so that it can
         # be deployed to ECS.
         docker compose build
-        docker push 975050251584.dkr.ecr.ap-northeast-2.amazonaws.com/dev/reserve-api:latest
+        docker push 975050251584.dkr.ecr.ap-northeast-2.amazonaws.com/dev/reserve-api:${GITHUB_SHA}
+          - name: Get verion
+          id: image
+          run: |
+            VERSION=$(echo ${{ github.sha }} | cut -c1-8)
+            echo VERSION=$VERSION
+            echo "::set-output name=version::$VERSION"
+        
+        # kustomize 명령을 가져온다.
+        - name: Setup Kustomize
+          uses: imranismail/setup-kustomize@v1
+  
+        - name: Checkout kustomize repository
+          uses: actions/checkout@v2
+          with:
+            # kubernetes 설정정보 저장소
+            repository: ReServeMarket/reserve-gitops
+            ref: main
+            # 다른 저장소에 push 하려면 Personal Access Token이 필요.
+            token: ${{ secrets.ACTION_TOKEN }}
+            path: charts
+        # 새 이미지 버전으로 파일 수정
+        - name: Update Kubernetes resources
+          run: |
+            cd charts/reserve-api/
+            sed -i "s|tag:.*|tag: ${GITHUB_SHA}|" values.yaml
+            cat values.yaml
+            
+        # 수정된 파일 commit & push
+        - name: Commit files
+          run: |
+            cd example-app-kustomize
+            git config --global user.email "xxxlsu@naver.com"
+            git config --global user.name "leegyeongyoon"
+            git commit -am "Update image tag"
+            git push -u origin main
