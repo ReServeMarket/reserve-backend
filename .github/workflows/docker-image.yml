@@ -58,7 +58,8 @@ jobs:
     - name: Update Kubernetes resources
       run: |
         ls
-        cd charts/reserve-api/
+        cd charts/
+        ls
         sed -i "s|tag:.*|tag: ${GITHUB_SHA}|" values.yaml
         cat values.yaml
         
