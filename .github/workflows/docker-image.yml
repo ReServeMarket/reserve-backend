@@ -57,6 +57,7 @@ jobs:
     # 새 이미지 버전으로 파일 수정
     - name: Update Kubernetes resources
       run: |
+        ls
         cd charts/reserve-api/
         sed -i "s|tag:.*|tag: ${GITHUB_SHA}|" values.yaml
         cat values.yaml
