@@ -57,6 +57,7 @@ jobs:
     # 새 이미지 버전으로 파일 수정
     - name: Update Kubernetes resources
       run: |
+        ls -al reserve-gitops
         cd reserve-gitops/charts/reserve-api/
         ls
         sed -i "s|tag:.*|tag: ${GITHUB_SHA}|" values.yaml
@@ -65,7 +66,8 @@ jobs:
     # 수정된 파일 commit & push
     - name: Commit files
       run: |
-        git remote add origin https://github.com/ReServeMarket/reserve-gitops.git
+        ls -al 
+        ls -al reserve-gitops
         git add .
         git config --global user.email "xxxlsu@naver.com"
         git config --global user.name "igyeong-yun"
