@@ -65,7 +65,7 @@ jobs:
     # 수정된 파일 commit & push
     - name: Commit files
       run: |
-        git remote add https://github.com/ReServeMarket/reserve-gitops.git
+        git remote add origin https://github.com/ReServeMarket/reserve-gitops.git
         git add .
         git config --global user.email "xxxlsu@naver.com"
         git config --global user.name "igyeong-yun"
