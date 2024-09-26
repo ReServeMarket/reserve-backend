@@ -67,6 +67,6 @@ jobs:
       run: |
         git add .
         git config --global user.email "xxxlsu@naver.com"
-        git config --global user.name "leegyeongyoon"
+        git config --global user.name "igyeong-yun"
         git commit -am "Update image tag to ${{ github.sha }}"
         git push -u origin main
