@@ -52,13 +52,12 @@ jobs:
         ref: main
         # 다른 저장소에 push 하려면 Personal Access Token이 필요.
         token: ${{ secrets.ACTION_TOKEN }}
-        path: charts
+        path: reserve-gitops
 
     # 새 이미지 버전으로 파일 수정
     - name: Update Kubernetes resources
       run: |
-        ls
-        cd charts/
+        cd reserve-gitops/charts/reserve-api/
         ls
         sed -i "s|tag:.*|tag: ${GITHUB_SHA}|" values.yaml
         cat values.yaml
