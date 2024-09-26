@@ -32,6 +32,7 @@ jobs:
         # push it to ECR so that it can
         # be deployed to ECS.
         docker compose build
+        docker tag 975050251584.dkr.ecr.ap-northeast-2.amazonaws.com/dev/reserve-api:latest 975050251584.dkr.ecr.ap-northeast-2.amazonaws.com/dev/reserve-api:${GITHUB_SHA}
         docker push 975050251584.dkr.ecr.ap-northeast-2.amazonaws.com/dev/reserve-api:${GITHUB_SHA}
           - name: Get verion
           id: image
