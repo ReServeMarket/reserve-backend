@@ -1,4 +1,4 @@
-package com.reserve.config.api.test.controller;
+package com.reserve.api.test.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
