@@ -1,4 +1,4 @@
-package com.reserve.config.swagger;
+package com.reserve.security.security.core.config.swagger;
 
 
 import io.swagger.v3.oas.models.Components;
